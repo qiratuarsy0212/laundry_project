@@ -1,13 +1,13 @@
 <?php
 session_start();
 
-// Kalau tombol login ditekan
+
 if (isset($_POST['login'])) {
-    // Simpan data user ke session (dummy)
+    
     $_SESSION['user_id'] = 1; 
     $_SESSION['role'] = 'user';
 
-    // Arahkan langsung ke halaman pemesanan
+    
     header("Location: order.php");
     exit;
 }
