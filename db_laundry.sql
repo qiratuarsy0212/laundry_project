@@ -1,8 +1,8 @@
--- Buat database
+
 CREATE DATABASE IF NOT EXISTS db_laundry;
 USE db_laundry;
 
--- Tabel users
+
 CREATE TABLE IF NOT EXISTS users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) UNIQUE NOT NULL,
@@ -11,14 +11,14 @@ CREATE TABLE IF NOT EXISTS users (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Tabel services
+
 CREATE TABLE IF NOT EXISTS services (
     id INT AUTO_INCREMENT PRIMARY KEY,
     service_name VARCHAR(100) NOT NULL,
     price INT NOT NULL
 );
 
--- Tabel orders
+
 CREATE TABLE IF NOT EXISTS orders (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS orders (
     FOREIGN KEY (service_id) REFERENCES services(id) ON DELETE CASCADE
 );
 
--- Tabel status_logs
+
 CREATE TABLE IF NOT EXISTS status_logs (
     id INT AUTO_INCREMENT PRIMARY KEY,
     order_id INT NOT NULL,
@@ -40,11 +40,11 @@ CREATE TABLE IF NOT EXISTS status_logs (
     FOREIGN KEY (order_id) REFERENCES orders(id) ON DELETE CASCADE
 );
 
--- Data awal users (admin)
+
 INSERT INTO users (username, password, role) VALUES
 ('admin', '$2y$10$Tf2QbyrjF7a4G2K1H0YqHeS45FqZlnpXvJ1mcwA1zFJb9Nwqrua0C', 'admin');
 
--- Data awal services
+
 INSERT INTO services (service_name, price) VALUES
 ('Lipat + Setrika', 15000),
 ('Cuci Kering', 5000),
