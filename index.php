@@ -4,16 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ratu Laundry</title>
-  <!-- Bootstrap -->
+  
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Animate.css -->
+  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-  <!-- Custom CSS -->
+ 
   <link rel="stylesheet" href="style.css">
   <style>
     body {
       font-family: 'Poppins', sans-serif;
-      background: url('dante2.png') no-repeat right bottom; /* gambar gabunganmu */
+      background: url('dante2.png') no-repeat right bottom; 
       background-size: 1280px;
       background-color: #f8f9fa;
     }
@@ -34,7 +34,7 @@
 </head>
 <body>
 
-<!-- Navbar -->
+
 <nav class="navbar navbar-light bg-white shadow-sm fixed-top">
   <div class="container">
     <a class="navbar-brand fw-bold text-primary" href="#">Ratu Laundry 👑</a>
@@ -42,7 +42,7 @@
   </div>
 </nav>
 
-<!-- Hero Section -->
+
 <section class="hero">
   <div class="container">
     <div class="col-md-6">
@@ -55,7 +55,7 @@
   </div>
 </section>
 
-<!-- Bootstrap JS -->
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
