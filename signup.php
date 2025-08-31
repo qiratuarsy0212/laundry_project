@@ -4,9 +4,9 @@ include "conn.php";
 if (isset($_POST['signup'])) {
     $name  = mysqli_real_escape_string($koneksi, $_POST['name']);
     $email = mysqli_real_escape_string($koneksi, $_POST['email']);
-    $pass  = md5($_POST['password']); // simpan password dalam md5
+    $pass  = md5($_POST['password']); 
 
-    // cek apakah email sudah ada
+    
     $check = $koneksi->query("SELECT * FROM users WHERE email='$email'");
     if ($check->num_rows > 0) {
         $error = "Email sudah terdaftar!";
