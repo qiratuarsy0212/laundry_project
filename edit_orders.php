@@ -11,13 +11,13 @@ $order = $result->fetch_assoc();
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $status = $_POST['status'];
     
-    // Simpan log (opsional)
+   
     $old_status = $order['status'];
     $stmt = $koneksi->prepare("INSERT INTO status_logs (order_id, old_status, new_status) VALUES (?,?,?)");
     $stmt->bind_param("iss", $id, $old_status, $status);
     $stmt->execute();
 
-    // Update status
+    
     $stmt = $koneksi->prepare("UPDATE orders SET status=? WHERE id=?");
     $stmt->bind_param("si", $status, $id);
     $stmt->execute();
