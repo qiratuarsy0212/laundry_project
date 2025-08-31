@@ -1,18 +1,18 @@
 <?php
 session_start();
 
-// Cek login
+
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit;
 }
 
-// Ambil data dari order.php
+
 if (isset($_POST['service']) && isset($_POST['price'])) {
     $service = $_POST['service'];
     $price   = $_POST['price'];
 
-    // Simpan ke session untuk download PDF
+    
     $_SESSION['last_order'] = [
         "service" => $service,
         "price"   => $price,
@@ -44,7 +44,7 @@ if (isset($_POST['service']) && isset($_POST['price'])) {
       flex-direction: column;
     }
 
-    /* Navbar */
+    
     .navbar {
       backdrop-filter: blur(10px);
       background: rgba(255,255,255,0.6);
@@ -66,7 +66,7 @@ if (isset($_POST['service']) && isset($_POST['price'])) {
       box-shadow: 0 4px 10px rgba(220,53,69,0.4);
     }
 
-    /* Overlay blur */
+    
     body::before {
       content: "";
       position: absolute;
@@ -131,7 +131,7 @@ if (isset($_POST['service']) && isset($_POST['price'])) {
 </head>
 <body>
 
-  <!-- Navbar -->
+  
   <nav class="navbar px-4">
     <a class="navbar-brand" href="order.php">👑 Ratu Laundry</a>
     <div class="ms-auto">
@@ -139,7 +139,7 @@ if (isset($_POST['service']) && isset($_POST['price'])) {
     </div>
   </nav>
 
-  <!-- Struk -->
+ 
   <div class="receipt-box">
     <img src="logo.png" alt="Logo Laundry">
     <h2>Ratu Laundry</h2>
