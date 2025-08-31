@@ -2,19 +2,19 @@
 session_start();
 require("conn.php");
 
-// Cek apakah user sudah login
+
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit;
 }
 
-// Jika form disubmit
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $service_name = $_POST['service'];
     $price        = $_POST['price'];
     $user_id      = $_SESSION['user_id'];
 
-    // Cari ID service berdasarkan nama
+    
     $stmt = $koneksi->prepare("SELECT id FROM services WHERE service_name = ?");
     $stmt->bind_param("s", $service_name);
     $stmt->execute();
@@ -24,12 +24,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if ($service) {
         $service_id = $service['id'];
 
-        // Simpan ke tabel orders
+        
         $stmt = $koneksi->prepare("INSERT INTO orders (user_id, service_id, price, order_date, status) VALUES (?, ?, ?, NOW(), 'pending')");
         $stmt->bind_param("iii", $user_id, $service_id, $price);
         $stmt->execute();
 
-        // Simpan ke session untuk struk
+        
         $_SESSION['last_order'] = [
             "service" => $service_name,
             "price"   => $price,
@@ -57,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       background-size: cover;
     }
 
-    /* Navbar */
+    
     .navbar {
       backdrop-filter: blur(10px);
       background: rgba(255,255,255,0.6);
@@ -78,7 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       box-shadow: 0 4px 10px rgba(220,53,69,0.4);
     }
 
-    /* Animasi */
+    
     @keyframes fadeInUp {
       0% {opacity: 0; transform: translateY(30px);}
       100% {opacity: 1; transform: translateY(0);}
@@ -151,7 +151,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 </head>
 <body>
 
-  <!-- Navbar -->
+
   <nav class="navbar px-4">
     <a class="navbar-brand" href="#">👑 Ratu Laundry</a>
     <div class="ms-auto">
@@ -159,7 +159,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     </div>
   </nav>
 
-  <!-- Judul -->
+  
   <div class="text-center">
     <div class="page-title">Silahkan Pilih Jenis Pesanan Anda</div>
   </div>
@@ -167,7 +167,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   <div class="container mb-5">
     <div class="row justify-content-center g-4">
 
-      <!-- Service 1 -->
+      
       <div class="col-md-3">
         <form method="POST">
           <div class="service-card">
@@ -180,7 +180,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </form>
       </div>
 
-      <!-- Service 2 -->
+      
       <div class="col-md-3">
         <form method="POST">
           <div class="service-card">
@@ -193,7 +193,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </form>
       </div>
 
-      <!-- Service 3 -->
+      
       <div class="col-md-3">
         <form method="POST">
           <div class="service-card">
